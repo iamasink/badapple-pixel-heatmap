@@ -46,48 +46,49 @@ function getColorFromValue(value: number) {
 
 
     ////////
-    // // if (normalizedValue <= 0.25) {
-    // //     r = Math.floor(4 * normalizedValue * 255)
-    // //     g = 0
-    // //     b = 255
-    // // } else if (normalizedValue <= 0.5) {
-    // //     r = 255
-    // //     g = Math.floor(4 * (normalizedValue - 0.25) * 255)
-    // //     b = Math.floor(255 * (1 - 4 * (normalizedValue - 0.25)))
-    // // } else if (normalizedValue <= 0.75) {
-    // //     r = Math.floor(255 * (1 - 4 * (normalizedValue - 0.5)))
-    // //     g = 255
-    // //     b = 0
-    // // } else {
-    // //     r = Math.floor(1 - 4 * normalizedValue * 255)
-    // //     g = Math.floor(255 * (1 - 4 * (normalizedValue - 0.75)))
-    // //     b = Math.floor(1 - 4 * normalizedValue * 255)
-    // // }
+    // if (normalizedValue <= 0.25) {
+    //     r = Math.floor(4 * normalizedValue * 255)
+    //     g = 0
+    //     b = 255
+    // } else if (normalizedValue <= 0.5) {
+    //     r = 255
+    //     g = Math.floor(4 * (normalizedValue - 0.25) * 255)
+    //     b = Math.floor(255 * (1 - 4 * (normalizedValue - 0.25)))
+    // } else if (normalizedValue <= 0.75) {
+    //     r = Math.floor(255 * (1 - 4 * (normalizedValue - 0.5)))
+    //     g = 255
+    //     b = 0
+    // } else {
+    //     r = Math.floor(1 - 4 * normalizedValue * 255)
+    //     g = Math.floor(255 * (1 - 4 * (normalizedValue - 0.75)))
+    //     b = Math.floor(1 - 4 * normalizedValue * 255)
+    // }
+    /////////
 
-    // let convertToRGB = converter('rgb')
-    // // use the oklch colour space to produce a full-spectrum gradient
-    // // lightness (1), chroma (0.4), hue (360)
-    // let colour = convertToRGB({ mode: 'oklch', l: 1, c: 0.4, h: z * 360 })
-    // // console.log(colour)
+    let convertToRGB = converter('rgb')
+    // use the oklch colour space to produce a full-spectrum gradient
+    // lightness (1), chroma (0.4), hue (360)
+    let colour = convertToRGB({ mode: 'oklch', l: 0.65, c: 0.35, h: z * 360 })
+    // console.log(colour)
 
-    // return { r: Math.min(255, Math.max(0, format(colour.r))), g: Math.min(255, Math.max(0, format(colour.g))), b: Math.min(255, Math.max(0, format(colour.b))) }
+    return { r: Math.min(255, Math.max(0, format(colour.r))), g: Math.min(255, Math.max(0, format(colour.g))), b: Math.min(255, Math.max(0, format(colour.b))) }
 
     ///////
-    if (z <= 0.5) {
-        let val = 1.5 * (z)
-        r = val
-        g = val
-        b = val
+    // if (z <= 0.5) {
+    //     let val = 1.5 * (z)
+    //     r = val
+    //     g = val
+    //     b = val
 
-    } else {
-        let val = 0.75 + ((z - 0.5) / 2)
-        r = val
-        g = val
-        b = val
+    // } else {
+    //     let val = 0.75 + ((z - 0.5) / 2)
+    //     r = val
+    //     g = val
+    //     b = val
 
 
-    }
-    return { r: Math.min(255, Math.max(0, format(r))), g: Math.min(255, Math.max(0, format(g))), b: Math.min(255, Math.max(0, format(b))) }
+    // }
+    // return { r: Math.min(255, Math.max(0, format(r))), g: Math.min(255, Math.max(0, format(g))), b: Math.min(255, Math.max(0, format(b))) }
 
 
     //////
