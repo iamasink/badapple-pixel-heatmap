@@ -1,4 +1,4 @@
-const { createCanvas } = require('canvas') // Ensure you have the canvas package installed
+const { createCanvas } = require('canvas')
 
 import fs from "fs"
 import { rgb, oklch, converter, Rgb } from "culori"
